@@ -15,7 +15,8 @@ a {
 }
 
 .dashboard {
-    margin: 200px 0px;
+    margin: 20px 0px;
+    height: 75vh;
 }
 
 .container {
@@ -24,13 +25,16 @@ a {
     margin: auto;
     width: 700px;
     padding: 50px;
+    height: 75vh;
+    overflow-y: scroll;
     
 }
 
 .card {
-    width: 50%;
+    width: 300px;
     padding: 10px 15px;
-    border-radius: 5px;
+    border-radius: 0px 5px 5px 0px;
+    border-left: 3px solid rgb(71 85 105);
 }
 
 .role {
@@ -42,6 +46,7 @@ a {
 .card:hover {
     cursor: pointer;
     box-shadow: 0 4px 6px -1px rgb(0 0 0 / 0.1), 0 2px 4px -2px rgb(0 0 0 / 0.1);
+    border-radius: 5px;
 }
 
 .header {
@@ -52,11 +57,95 @@ a {
 }
 
 .search {
+    outline: none;
+    border: none;
     padding: 5px 10px;
-    border: 1px solid rgb(203 213 225);
-    border-radius: 7px;
 }
 
 .search:focus {
     outline: none;
 }
+
+.searchBar {
+    display: flex;
+    flex-direction: row;
+    border: 1px solid rgb(203 213 225);
+    border-radius: 7px;
+    /* align-items: center; */
+}
+
+.btn {
+    padding: 8px 16px;
+    background-color: rgb(71 85 105);
+    color: white;
+    border-top-right-radius: 7px;
+    border-bottom-right-radius: 7px;
+    display: flex;
+    align-items: center;
+}
+
+.btn:hover {
+    opacity: 80%;
+    cursor: pointer;
+}
+
+
+.xxl {
+    font-size: 100px;
+    font-weight: 10px;
+    cursor: pointer;
+    color: rgb(203 213 225);
+}
+
+.chevron {
+    height: 100px;
+    width: 100px;
+    color: rgb(203 213 225);
+    cursor: pointer;
+}
+
+.flex-row {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.flex-column {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 9px;
+}
+
+.font-xxl {
+    font-size: xx-large;
+}
+
+.center {
+    /* border-top: 1px solid rgb(226 232 240); */
+    margin-top: 20px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.font-grey {
+    color: rgb(61, 64, 69)
+}
+
+/* width */
+::-webkit-scrollbar {
+    width: 8px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(71 85 105); 
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    opacity: 200%;
+}
+
