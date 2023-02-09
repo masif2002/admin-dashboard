@@ -123,56 +123,32 @@ const addSubmitButton = () => {
 }
 
 const sendFormData = () => {
-    console.log("Hello")
-    var xhr = new XMLHttpRequest();
-    xhr.open("POST", "http://10.140.11.221:5000/user/login"); 
+    return new Promise( (resolve, reject) => {
+        console.log("Hello")
+        var xhr = new XMLHttpRequest();
+        xhr.open("POST", "http://127.0.0.1:5000/login"); 
+    
+        // This fires up when the connection is successful
+        xhr.onload = function(event){ 
+            console.log(xhr.response)
+            const res = JSON.parse(xhr.response)  
+            localStorage.setItem('token', res.access_token)
+            
+            const statusCode = xhr.status
+            const statusMsg = res.status
 
-    // This fires up when the connection is successful
-    xhr.onload = function(event){ 
-        // alert("Success, server responded with: " + event.target.response);
-        // localStorage.clear() 
-        // localStorage.setItem('response', xhr.response)
-        console.log(xhr.response)
-        // console.log(xhr.status)
-        // displayStatus(xhr.status)
-    }; 
-
-    var formData = new FormData(document.getElementById("credentials-form")); 
-    xhr.send(formData);
+            if (statusCode == 200) {
+                resolve(statusCode)
+            } else {
+                reject(statusMsg)
+            }
+        }; 
+        
+        var formData = new FormData(document.getElementById("credentials-form")); 
+        xhr.send(formData);
+    })
 }
 
-
-
-
-
-const displayStatus = (statusCode) => {
-    const res = localStorage.getItem('response')
-    // console.log(response)
-    const status = JSON.parse(res).status
-
-    if (document.getElementById('status')) {
-        const displayMessage = document.getElementById('status')
-        displayMessage.parentNode.removeChild(displayMessage)
-    }
-    
-    if (statusCode == 200) {
-        window.location.href = "/index.html"
-    } else {
-        const newNode = document.createElement('p')
-        //     console.log(res)
-        newNode.id = 'status'
-        newNode.classList.add('shake') 
-
-        const displayText = document.createTextNode(status)
-        newNode.appendChild(displayText)
-    
-        const buttons = document.getElementById('button-container')   
-        const parent = buttons.parentNode
-    
-        parent.insertBefore(newNode, buttons)
-    }
-
-}
 
 document.getElementById('Next').addEventListener('click', nextPage)
 
@@ -181,9 +157,20 @@ document.getElementById('Next').addEventListener('click', nextPage)
 
 document.addEventListener("click", submitBtnListener)
 
-function submitBtnListener(event){
+async function submitBtnListener(event){
     var element = event.target;
     if(element.id == 'submit' && element.type == "submit"){
-        sendFormData()
+
+        try {
+            var status = await sendFormData()
+        } catch (error) {
+            alert(error)
+        } finally {
+            if (status == 200) {
+                window.location.href = './index.html'
+            }
+        }
+
+
     }
 }
