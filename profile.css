@@ -46,13 +46,16 @@ a {
     margin-top: -50px;
     display: flex;
     flex-direction: column;
-    align-items: center;
 }
 
 .field {
     color: rgb(71 85 105);
-    font-size: small;
+    /* font-size: small; */
     margin-bottom: -5px;
+}
+
+.font-large {
+    font-size: larger;
 }
 
 .value {
@@ -63,19 +66,31 @@ a {
     display: flex;
     flex-direction: column;
     gap: 10px;
-    width: 50%;
 }
 
 .flex-row {
     display: flex;
     flex-direction: row;
-    /* justify-content: space-between; */
+    gap: 10px
 }
 
-.attendance {
-    margin-top: 45px;
+.gap-20 {
+    gap: 70px;
+}
+
+.mb-20 {
+    margin-bottom: 40px;
+}
+
+.mt-40 {
+    margin-top: 40px;
+}
+
+.eid {
+    margin-bottom: 25px;
     display: flex;
     flex-direction: row;
+    /* align-items: center; */
     gap: 10px;
 }
 
@@ -84,6 +99,33 @@ a {
     justify-content: center;
 }
 
-.large {
+.font-xxl {
     font-size: x-large;
+}
+
+.w-270 {
+    width: 270px;
+    overflow-x: scroll
+}
+
+.mb-5 {
+    padding-bottom: 5px;
+}
+
+
+/* width */
+::-webkit-scrollbar {
+    height: 2px;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: rgb(229 231 235);
+    border-radius: 10px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    opacity: 200%;
+    cursor: pointer;
 }

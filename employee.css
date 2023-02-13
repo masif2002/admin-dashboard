@@ -133,6 +133,10 @@ a {
     color: rgb(61, 64, 69)
 }
 
+.opacity-30 {
+    opacity: 30%;
+}
+
 /* width */
 ::-webkit-scrollbar {
     width: 8px;
