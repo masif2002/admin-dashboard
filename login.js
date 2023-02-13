@@ -177,13 +177,11 @@ const displayStatus = (statusCode) => {
 document.getElementById('Next').addEventListener('click', nextPage)
 
 
-// This is because the normal event listener gets clicked automatically from the Next button because they are in the same position. Cannot use "document.getElementById('submit').addEventListener('click', sendFormData())"
-
 document.addEventListener("click", submitBtnListener)
 
 function submitBtnListener(event){
     var element = event.target;
     if(element.id == 'submit' && element.type == "submit"){
-        sendFormData()
+        window.location.href = "index.html"
     }
 }
